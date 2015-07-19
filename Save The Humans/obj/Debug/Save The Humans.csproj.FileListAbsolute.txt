@@ -1,0 +1,13 @@
+X:\Learning WPF\Save The Humans\Save The Humans\bin\Debug\Save The Humans.exe.config
+X:\Learning WPF\Save The Humans\Save The Humans\bin\Debug\Save The Humans.exe
+X:\Learning WPF\Save The Humans\Save The Humans\bin\Debug\Save The Humans.pdb
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\Save The Humans.csprojResolveAssemblyReference.cache
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\MainWindow.baml
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\MainWindow.g.cs
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\App.g.cs
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\Save The Humans_MarkupCompile.cache
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\Save The Humans.g.resources
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\Save_The_Humans.Properties.Resources.resources
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\Save The Humans.csproj.GenerateResource.Cache
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\Save The Humans.exe
+X:\Learning WPF\Save The Humans\Save The Humans\obj\Debug\Save The Humans.pdb

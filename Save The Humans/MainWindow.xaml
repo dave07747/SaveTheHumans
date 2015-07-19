@@ -1,0 +1,115 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Save_The_Humans.MainWindow"
+        Title="Save The Humans" Height="700" Width="1000" Background="Black"
+        ResizeMode="NoResize"
+        WindowStartupLocation="Manual" 
+        Left="0" Top="0">
+    <Window.Resources>
+        <ControlTemplate x:Key="EnemyTemplate" TargetType="{x:Type ContentControl}">
+            <Grid>
+                <Ellipse Fill="Gray" Height="100" Stroke="Black" Width="75">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-2.226"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <StackPanel Margin="22,20,52,45" Orientation="Vertical">
+                    <Ellipse Fill="Black" HorizontalAlignment="Center" Height="35" Stroke="Black" VerticalAlignment="Top" Width="25" RenderTransformOrigin="0.373,0.45" Margin="0,0,1,0">
+                        <Ellipse.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="10"/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                </StackPanel>
+                <StackPanel Margin="52,20,22,45" Orientation="Vertical">
+                    <Ellipse Fill="Black" HorizontalAlignment="Center" Height="35" Margin="0,0,1,0" Stroke="Black" VerticalAlignment="Top" Width="25" RenderTransformOrigin="1.022,0.914">
+                        <Ellipse.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="-10"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-2.555"/>
+                            </TransformGroup>
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                </StackPanel>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid x:Name="grid" Height="661" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1000" Margin="0,0,-6,0" Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="160"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="startButton" Content="Start!" Margin="53,75,55,55"
+			Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.031,0" Click="startButton_Click"/>
+        <ProgressBar x:Name="progressBar" Grid.Column="1"
+			Grid.Row="1" Height="20" Margin="0,94,0,36" ValueChanged="ProgressBar_ValueChanged"/>
+        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,20,16">
+
+            <TextBlock TextWrapping="Wrap" Text="Avoid These"
+        		RenderTransformOrigin="0,0.625" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Background="Black"/>
+            <ContentControl Content="ContentControl" HorizontalAlignment="Center"
+        		Margin="20,0" VerticalAlignment="Center" Template="{DynamicResource EnemyTemplate}"/>
+
+        </StackPanel>
+        <Canvas x:Name="playArea" HorizontalAlignment="Center"
+        	VerticalAlignment="Top" Grid.ColumnSpan="3" Width="1000" Height="501" MouseMove="playArea_MouseMove" MouseLeave="playArea_MouseLeave">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF17F30D" Offset="1"/>
+                    <GradientStop Color="#FF7A06DA"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+            <TextBlock x:Name="gameOverText" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Game Over" VerticalAlignment="Center" FontFamily="Ariel" FontWeight="Bold" FontStyle="Italic" FontSize="100" Canvas.Left="235" Canvas.Top="165"/>
+            <StackPanel x:Name="human" Orientation="Vertical" Canvas.Left="855" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Canvas.Top="128" Width="35" MouseDown="human_MouseDown">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="178.428"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <Rectangle Fill="White" Height="25" Width="10"/>
+                <Ellipse Fill="White" Height="10" Width="10"/>
+            </StackPanel>
+            <Rectangle x:Name="target" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" RenderTransformOrigin="0.5,0.5" Canvas.Left="335" Canvas.Top="370" MouseEnter="target_MouseEnter">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF271A1A" Offset="0.009"/>
+                        <GradientStop Color="#FFECE8E8" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Canvas>
+        <TextBlock x:Name="alienAmount" Grid.Column="1" HorizontalAlignment="Left" Margin="155,41,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFF70606" FontSize="25" Text="0"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="80,9,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Amount of Aliens:" VerticalAlignment="Top" Foreground="#FFFFFDFD" FontSize="20"/>
+        <TextBlock x:Name="levelText" Grid.Column="1" HorizontalAlignment="Left" Margin="485,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="You are on Level:" VerticalAlignment="Top" Foreground="#FFFBF9F9" FontSize="20"/>
+        <TextBlock x:Name="level" Grid.Column="1" HorizontalAlignment="Left" Margin="550,42,0,0" Grid.Row="1" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Foreground="#FF9811F5" FontSize="25"/>
+    </Grid>
+</Window>
